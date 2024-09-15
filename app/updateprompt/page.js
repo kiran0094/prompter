@@ -3,14 +3,12 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 import From from "@/components/From";
 
-const UpdatePrompter = () => {
+const  UpdatePrompterContent  = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-
   const [sumbitting, setsumbitting] = useState(false);
-
   const promptId = searchParams.get("id");
-  const [post, setpost] = useState({
+    const [post, setpost] = useState({
     prompt: " ",
     tag: " ",
   });
@@ -63,13 +61,17 @@ const UpdatePrompter = () => {
   );
 };
 
-// Updated to wrap UpdatePrompter in Suspense
-const page = () => {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <UpdatePrompter />
-    </Suspense>     
-  );
-}
+const UpdatePrompter = () => (
+  <Suspense fallback={<div>Loading prompt details...</div>}>
+    <UpdatePrompterContent />
+  </Suspense>
+);
 
-export default page;
+// Updated to wrap UpdatePrompter in Suspense
+const UpdatePromptPage = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <UpdatePrompter />
+  </Suspense>
+);
+
+export default UpdatePromptPage;
