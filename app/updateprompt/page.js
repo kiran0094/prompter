@@ -58,20 +58,18 @@ const UpdatePrompter = () => {
         setpost={setpost}
         sumbitting={sumbitting}
         handleSubmit={UpdatePrompt}
-        />
-    </div>   
-  
+      />
+    </div>  
   );
 };
 
+// Updated to wrap UpdatePrompter in Suspense
 const page = () => {
   return (
-    <Suspense>
-      <UpdatePrompter/>
+    <Suspense fallback={<div>Loading...</div>}>
+      <UpdatePrompter />
     </Suspense>     
-    
-  )
+  );
 }
 
-export default page
-
+export default page;
