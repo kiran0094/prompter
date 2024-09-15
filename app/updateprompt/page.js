@@ -3,7 +3,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 import From from "@/components/From";
 
-const UpdatePrompt = () => {
+const UpdatePrompter = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -67,7 +67,7 @@ const UpdatePrompt = () => {
 const page = () => {
   return (
     <Suspense>
-      <UpdatePrompt/>
+      <UpdatePrompter/>
     </Suspense>     
     
   )
