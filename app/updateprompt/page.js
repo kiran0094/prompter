@@ -1,6 +1,5 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useSession } from "next-auth/react";
 import { Suspense, useEffect, useState } from "react";
 import From from "@/components/From";
 
@@ -52,8 +51,6 @@ const UpdatePrompt = () => {
   };
 
   return (
-    <Suspense fallback={<div>Loading</div>}>
-
     <div>
       <From
         type='edit'
@@ -62,10 +59,19 @@ const UpdatePrompt = () => {
         sumbitting={sumbitting}
         handleSubmit={UpdatePrompt}
         />
-    </div>
-    </Suspense>
+    </div>   
   
   );
 };
 
-export default UpdatePrompt;
+const page = () => {
+  return (
+    <Suspense>
+      <UpdatePrompt/>
+    </Suspense>     
+    
+  )
+}
+
+export default page
+
